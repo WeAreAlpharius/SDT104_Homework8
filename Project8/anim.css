@@ -1,0 +1,53 @@
+* {
+    animation: rainbow 5s infinite;
+}
+
+header {
+    transition: transform 2s ease-in;
+    transform: rotate(0deg);
+}
+
+header:hover {
+    transform: rotate(-10deg);
+}
+
+*:nth-child(even) {
+  animation: op 5s infinite;
+}
+
+@keyframes op {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes rainbow {
+  0% { box-shadow: 0 0 10px red; }
+  25% { box-shadow: 0 0 10px yellow; }
+  50% { box-shadow: 0 0 10px lime; }
+  75% { box-shadow: 0 0 10px blue; }
+  100% { box-shadow: 0 0 10px magenta; }
+}
+
+body {
+  animation: back 10s infinite alternate;
+}
+
+@keyframes back {
+  0% { background: black; }
+  25% { background: radial-gradient(circle, red, yellow); }
+  50% { background: linear-gradient(45deg, blue, green); }
+  75% { background: repeating-linear-gradient(45deg, purple, orange 10px); }
+  100% { background: white; }
+}
+
+p, h4, h3, div {
+    text-shadow: 0 0 5px red;
+    transform: rotate(-2deg);
+    transition: text-shadow 5s ease-out,
+                transform 2s linear;
+}
+
+:is(p, h4, h3, div):hover {
+    text-shadow: 10px 10px 20px blue, -10px -10px 20px yellow;
+    transform: rotate(2deg);
+}

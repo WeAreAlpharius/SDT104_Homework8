@@ -1,0 +1,150 @@
+* {
+  box-sizing: border-box;
+  margin: 3px;
+  padding: 7px;
+  border: 1px dashed rgba(0,0,0,0.2);
+}
+
+main > aside {
+  position: relative;
+  top: 40px;
+  left: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  margin: 20px;
+  padding: 15px;
+  border: 5px solid purple;
+}
+
+main > p {
+  flex-grow: 3; 
+  margin: 10px;
+  padding: 20px;
+  background: lightblue;
+  position: relative;
+}
+
+p + p { /*next*/
+  background: lightcoral;
+  float: left; 
+  width: 40%;
+}
+
+p:has(+ p) { /*previous*/
+  border: 3px dotted green;
+}
+
+main:hover {
+  background: black;
+  color: white;
+}
+
+p:nth-child(odd) {
+  transform: rotate(2deg);
+}
+
+.i:nth-child(3n) {
+  position: absolute;
+  top: 10px;
+  left: 50px;
+}
+
+.i::before {
+  content: "Start ";
+  color: red;
+  font-weight: bold;
+}
+
+.i::after {
+  content: " End";
+  color: blue;
+}
+
+ul li.i > span + a {
+  color: orange;
+  position: relative;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  background: yellow;
+}
+
+.discussions {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  background: pink;
+  padding: 25px;
+}
+
+.discussions-header {
+  position: absolute;
+  top: 30%;
+  left: 30%;
+  background: lime;
+}
+
+.quest:hover {
+  padding: 50px;
+  margin: -10px;
+  border: 10px solid red;
+}
+
+.quest {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  flex-wrap: wrap-reverse;
+}
+
+.quest > div {
+  flex-grow: 10;
+  width: 10px;
+}
+
+@media (max-width: 600px) {
+  body {
+    background: black;
+    color: lime;
+  }
+
+  main {
+    flex-direction: column;
+  }
+
+  .i {
+    position: fixed;
+    bottom: 0;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 1000px) {
+  main {
+    transform: skew(10deg);
+  }
+
+  .item {
+    float: right;
+    width: 70%;
+  }
+}
+
+@media (min-width: 1001px) {
+  main {
+    display: block; 
+  }
+
+  .i {
+    position: sticky;
+    top: 20px;
+    background: repeating-linear-gradient(
+      45deg,
+      red,
+      yellow 10px,
+      blue 20px
+    );
+  }
+}
